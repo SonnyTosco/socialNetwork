@@ -1,3 +1,4 @@
 (function(){
-  angular.module('TimeWaste', []);
+  angular.module('TimeWaste', ['ui.router'])
+    .config(function($stateProvider))
 })();
