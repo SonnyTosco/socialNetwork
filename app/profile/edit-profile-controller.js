@@ -11,7 +11,7 @@
     $scope.upload = function(file){
       if(file){
         Upload.upload({
-          url: 'api/profile/edit',
+          url: 'api/profile/editPhoto',
           method: 'POST',
           data: {
             userID: $scope.user._id
@@ -25,6 +25,6 @@
           console.log(error);
         })
       }
-    }
+    };
   }]);
 }());
