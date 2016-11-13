@@ -17,7 +17,9 @@ module.exports.login = function(req, res){
       var userData = results[0];
       res.json({
         _id: userData._id,
-        email: req.body.email
+        email: req.body.email,
+        username: userData.username,
+        image: userData.image
       });
       console.log(results);
     }

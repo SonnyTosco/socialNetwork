@@ -9,6 +9,7 @@ var multipartMiddleware = multipart();
 var app = express();
 var authenticationController = require('./server/controllers/authentication-controller')
 var profileController = require ('./server/controllers/profile-controller');
+var wasteController = require('./server/controllers/waste-controller')
 
 mongoose.connect('mongodb://localhost:27017/time-waste')
 
@@ -29,6 +30,9 @@ app.post('/api/user/login', authenticationController.login);
 app.post('/api/profile/editPhoto', multipartMiddleware, profileController.updatePhoto);
 app.post('/api/profile/updateUsername', profileController.updateUsername);
 app.post('/api/profile/updateBio', profileController.updateBio);
+
+//Waste
+app.post('/api/waste/post', wasteController.postWaste);
 
 app.listen('3000', function(){
   console.log('Listening on Port 3000');
