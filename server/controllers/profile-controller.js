@@ -53,3 +53,23 @@ module.exports.updateUsername = function(req, res){
     })
   });
 }
+
+module.exports.updateBio = function(req, res){
+  var bio = req.body.bio;
+  var userId = req.body.userID;
+
+  User.findById(userId, function(err, userData){
+    var user = userData;
+    user.bio = bio;
+
+    user.save(function(err){
+      if(err){
+        console.log('fail');
+        res.json({status: 500})
+      } else {
+        console.log('success');
+        res.json({status: 200})
+      }
+    })
+  });
+}
